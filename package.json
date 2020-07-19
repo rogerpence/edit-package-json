@@ -1,0 +1,30 @@
+{
+    "name": "@rogerpence/edit-package-json",
+    "version": "1.0.4",
+    "description": "Add or change package.json values",
+    "main": "index.js",
+    "bin": {
+        "editPackageJson": "index.js"
+    },
+    "keywords": [
+        "package.json",
+        "cli"
+    ],
+    "author": "Roger Pence",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rogerpence/edit-package-json"
+    },
+    "license": "ISC",
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "fs": "0.0.1-security",
+        "jsonfile": "^6.0.1",
+        "mocha": "^8.0.1",
+        "yargs": "^15.4.1"
+    },
+    "scripts": {
+        "test": "mocha"
+    },
+    "dependencies": {}
+}
