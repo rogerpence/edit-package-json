@@ -1,6 +1,6 @@
 {
     "name": "@rogerpence/edit-package-json",
-    "version": "1.0.4",
+    "version": "1.1.1",
     "description": "Add or change package.json values",
     "main": "index.js",
     "bin": {
@@ -22,7 +22,9 @@
         "mocha": "^8.0.1"
     },
     "scripts": {
-        "test": "mocha"
+        "shakey1": "cross-env NODE_ENV=development postcss ./tailwind/tailwind.main.css -o ./dist/css/tailwind.css",
+        "shakey2": "keep on rockin' in the free world",
+        "shakey4": "cross-env^NODE_ENV=development^postcss^./tailwind/tailwind.main.css^-o^./dist/css/tailwind.css"
     },
     "dependencies": {
         "jsonfile": "^6.0.1",

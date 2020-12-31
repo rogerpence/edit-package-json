@@ -48,11 +48,9 @@ Example:
 
 Run `editpackagejson`
 
-    $ npx editpackagejson -k "dev:tw" -v "postcss... "
+    $ npx editpackagejson -k "dev:tw" -v "postcss..."
 
-`package.json` after:
-
-The `dev:key` and its value have been added to the `scripts` element.
+causes `dev:key` and its value have been added to the `scripts` element.
 
     "scripts": {
         "test": "mocha",
@@ -75,13 +73,27 @@ Pass a JavaScript object with the necessary option names (omitting the leading d
 
 ### Key values with embedded blanks on the command line
 
-Embedded blanks cause most command processors trouble. Use the following guide for delimiting values with embedded blanks:
+Arguments passed on the command with embedded blanks cause command processors trouble. Use the guide below for platform-specific ways to delimit values with embedded blanks... or let `edit-package-json` do the hard work by using a plus sign (+) anywhere you a want a blank. For example, this:
+
+    npx editpackagejson -k "dev:tw" -v "cross-env+NODE_ENV=dev+mycommand"
+
+resolves to this value in the `package.json` `scripts.dev:tw` value:
+
+    cross-env NODE_ENV=dev mycommand
+
+It's probably easiest to use the plus sign feature and get on with your life. However, if you rather do it the hard way, use the guide below:
 
 #### PowerShell
 
 Use `'"" and ""'` to delimit the value:
 
     npx editpackagejson -k "dev:tw" -v '""cross-env NODE_ENV=dev mycommand""'
+
+However, in PowerShell if you'd like build a key value with PowerShell's string interpolation, you need to use this convoluted syntax:
+
+    $value = "'`"`"important stuff with ./$($devDirectory)/css/`"`"'"
+
+to cause PowerShell to pass the correct value to `edit-package-json`. This error-prone convolution was the inspiration for adding the plus sign (+) feature.
 
 #### DOS command prompt and Bash command line:
 

@@ -17,7 +17,7 @@ const editPackageJson = args => {
             throw new Error(message)
         }
 
-        packaged[args.parent][args.key] = args.value
+        packaged[args.parent][args.key] = args.value.replace(/\+/g, ' ');
         jsonfile.writeFileSync('package.json', packaged, {spaces: 4})
     }
     catch (e) {
