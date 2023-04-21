@@ -19,7 +19,7 @@
     "devDependencies": {
         "chai": "^4.2.0",
         "fs": "0.0.1-security",
-        "mocha": "^8.0.1"
+        "mocha": "^10.2.0"
     },
     "scripts": {
         "shakey1": "cross-env NODE_ENV=development postcss ./tailwind/tailwind.main.css -o ./dist/css/tailwind.css",
